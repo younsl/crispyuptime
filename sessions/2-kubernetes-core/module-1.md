@@ -44,6 +44,10 @@ minikube start \
     --nodes=3
 ```
 
+Kubernetes 클러스터는 두 가지 유형의 리소스로 구성됩니다. 컨트롤 플레인<sup>Control Plane</sup>은 클러스터를 조정합니다. 노드<sup>Nodes</sup>는 애플리케이션 파드를 실행하는 작업자입니다.
+
+![Control Plane and Nodes](./asset/2.png)
+
 컨트롤플레인 1대, 워커노드가 2대 생성됩니다.
 
 ```console
@@ -54,7 +58,7 @@ multinode-lab-m02   Ready    <none>          3h36m   v1.31.0
 multinode-lab-m03   Ready    <none>          3h36m   v1.31.0
 ```
 
-![alt text](./asset/2.png)
+![클러스터 구성도](./asset/3.png)
 
 &nbsp;
 

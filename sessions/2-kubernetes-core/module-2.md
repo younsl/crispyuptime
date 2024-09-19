@@ -142,7 +142,7 @@ kubernetes-bootcamp-69ff4c7fd7-s8lnl   1/1     Running   0          51s
 
 Kubernetes는 애플리케이션의 운영과 관리를 자동화하는 데 중점을 둔 플랫폼입니다. 그중 핵심 개념은 확장성과 자가 치유(Self-healing)입니다. 파드 수를 확장하는 방식도 이러한 철학을 반영하고 있습니다.
 
-![self healing](./asset/3.png)
+![self healing](./asset/4.png)
 
 &nbsp;
 

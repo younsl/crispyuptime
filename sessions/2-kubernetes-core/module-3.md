@@ -46,7 +46,7 @@ Docker Desktop 사용자 참고: Docker Desktop의 네트워킹 제한으로 인
 
 **NodePort 타입의 service 구성 예시**:  
 
-![nodePort, port and targetPort](./asset/4.png)
+![nodePort, port and targetPort](./asset/5.png)
 
 &nbsp;
 
