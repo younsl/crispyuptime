@@ -1,11 +1,11 @@
-# Kubernetes Core
+# 모듈 1 - 클러스터 생성
 
 - **난이도**: 초급
 - **예상 소요 시간**: 10분
 
 &nbsp;
 
-이 시나리오의 목표는 minikube를 사용하여 로컬 환경에 Kubernetes 클러스터를 배포하는 것입니다.
+이 시나리오의 목표는 [minikube](https://github.com/kubernetes/minikube)를 사용하여 로컬 환경에 Kubernetes 클러스터를 배포하는 것입니다.
 
 &nbsp;
 
@@ -33,7 +33,7 @@ brew install minikube kubectl
 minikube version
 ```
 
-3대의 노드로 구성된 minikube 클러스터를 생성합니다.
+로컬 환경에 3대의 노드로 구성된 minikube 클러스터를 생성합니다.
 
 ```bash
 minikube start \
@@ -58,7 +58,7 @@ multinode-lab-m02   Ready    <none>          3h36m   v1.31.0
 multinode-lab-m03   Ready    <none>          3h36m   v1.31.0
 ```
 
-![클러스터 구성도](./asset/3.png)
+![Kubernetes 클러스터 구성도](./asset/3.png)
 
 &nbsp;
 
