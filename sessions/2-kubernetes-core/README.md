@@ -1,4 +1,4 @@
-# Kubenretes Core
+# Kubernetes Core
 
 애플리케이션을 배포, 탐색, 공개, 확장 및 업데이트하는 방법을 보여주는 튜토리얼입니다.
 
