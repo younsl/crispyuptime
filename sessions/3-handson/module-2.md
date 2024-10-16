@@ -158,6 +158,13 @@ SENTINEL slaves <master-name>
 
 특정 마스터에 대한 슬레이브의 상태를 확인합니다. <master-name>은 이전 `SENTINEL masters` 명령어에서 확인한 마스터의 이름입니다.
 
+마스터 이름:
+
+```console
+1)  1) "name"
+    2) "mymaster"
+```
+
 센티넬 정보를 확인합니다.
 
 ```bash
