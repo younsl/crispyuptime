@@ -2,10 +2,19 @@
 
 ### 1. 차트 레포 세팅
 
+헬름이 설치되어 있지 않다면 로컬에 `helm`부터 설치합니다.
+
+```bash
+brew install helm
+```
+
+&nbsp;
+
+`redis` 헬름 차트가 보관되어 있는 `bitnami` 차트 레포지터리를 등록합니다.
+
 ```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
-
-kubectl create namespace redis
+helm repo list
 ```
 
 ### 2. 차트 설치
