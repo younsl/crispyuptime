@@ -64,6 +64,7 @@ StatefulSet 구성 파일 작성하기: [mysql-statefulset.yaml 파일](./1-sts-
 StatefulSet 배포하기:
 
 ```yaml
+wget https://raw.githubusercontent.com/younsl/crispyuptime/main/sessions/3-handson/1-sts-mysql.yaml
 kubectl apply -f 1-sts-mysql.yaml
 ```
 
