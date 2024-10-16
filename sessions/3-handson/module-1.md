@@ -121,7 +121,7 @@ kubectl rollout restart statefulset mysql \
   && kubectl get pod -w
 ```
 
-이번에는 같이 가장 최근에 생성된 파드부터 `mysql-2` → `mysql-1` → `mysql-0` 역순으로 재시작하게 됩니다.
+이번에는 같이 가장 최근에 생성된 파드부터 `mysql-2` → `mysql-1` → `mysql-0` 역순으로 재시작하게 됩니다.
 
 ```bash
 statefulset.apps/mysql restarted
