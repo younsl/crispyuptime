@@ -78,6 +78,21 @@ kubectl get pod -w
 
 Pod들이 순차적으로 `mysql-0` → `mysql-1` → `mysql-2` 순서로 생성됩니다. 여기서 우리는 Statefulset으로 제어되는 파드들은 순서가 보장된다는 사실을 알 수 있습니다.
 
+`kubectl get pod -w`의 출력 결과:
+
+```bash
+NAME      READY   STATUS              RESTARTS   AGE
+mysql-0   1/1     Running             0          30s
+mysql-1   0/1     ContainerCreating   0          14s
+mysql-1   1/1     Running             0          18s
+mysql-2   0/1     Pending             0          0s
+mysql-2   0/1     Pending             0          0s
+mysql-2   0/1     Pending             0          2s
+mysql-2   0/1     ContainerCreating   0          2s
+mysql-2   0/1     ContainerCreating   0          3s
+mysql-2   1/1     Running             0          19s
+```
+
 &nbsp;
 
 이제 StatefulSet의 순서 보장을 확인하기 위해 모든 Pod를 삭제하고 재시작하는 과정을 실습합니다.
@@ -97,6 +112,52 @@ NAME      READY   STATUS    RESTARTS   AGE
 mysql-0   1/1     Running   0          4s
 mysql-1   1/1     Running   0          3s
 mysql-2   1/1     Running   0          2s
+```
+
+`rollout` 명령어로 재시작도 해봅니다.
+
+```bash
+kubectl rollout restart statefulset mysql \
+  && kubectl get pod -w
+```
+
+이번에는 같이 가장 최근에 생성된 파드부터 `mysql-2` → `mysql-1` → `mysql-0` 역순으로 재시작하게 됩니다.
+
+```bash
+statefulset.apps/mysql restarted
+NAME      READY   STATUS        RESTARTS   AGE
+mysql-0   1/1     Running       0          2m3s
+mysql-1   1/1     Running       0          107s
+mysql-2   1/1     Terminating   0          89s
+mysql-2   1/1     Terminating   0          89s
+mysql-2   0/1     Completed     0          89s
+mysql-2   0/1     Completed     0          90s
+mysql-2   0/1     Completed     0          90s
+mysql-2   0/1     Pending       0          0s
+mysql-2   0/1     Pending       0          0s
+mysql-2   0/1     ContainerCreating   0          0s
+mysql-2   0/1     ContainerCreating   0          1s
+mysql-2   1/1     Running             0          1s
+mysql-1   1/1     Terminating         0          109s
+mysql-1   1/1     Terminating         0          110s
+mysql-1   0/1     Completed           0          110s
+mysql-1   0/1     Completed           0          111s
+mysql-1   0/1     Completed           0          111s
+mysql-1   0/1     Pending             0          0s
+mysql-1   0/1     Pending             0          0s
+mysql-1   0/1     ContainerCreating   0          0s
+mysql-1   0/1     ContainerCreating   0          0s
+mysql-1   1/1     Running             0          1s
+mysql-0   1/1     Terminating         0          2m8s
+mysql-0   1/1     Terminating         0          2m9s
+mysql-0   0/1     Completed           0          2m9s
+mysql-0   0/1     Completed           0          2m10s
+mysql-0   0/1     Completed           0          2m10s
+mysql-0   0/1     Pending             0          0s
+mysql-0   0/1     Pending             0          0s
+mysql-0   0/1     ContainerCreating   0          0s
+mysql-0   0/1     ContainerCreating   0          0s
+mysql-0   1/1     Running             0          1s
 ```
 
 &nbsp;
